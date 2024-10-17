@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coming soon</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            text-align: center;
+        }
+        .quote {
+            font-size: 2em;
+            font-style: italic;
+            margin-bottom: 1em;
+        }
+        .author {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+            color:#e6e6e6;
+            font-style:italic;
+        }
+        .footer {
+            font-size: 1em;
+            position: absolute;
+            bottom: 10px;
+            color:#c2c2c2;
+            font-style:italic;
+        }
+    </style>
+</head>
+<body>
+    <div id="quoteContainer">
+        <p class="quote" id="quote"></p>
+        <p class="author" id="author"></p>
+    </div>
+    <p class="footer"><a href="https://github.com/diegocancelac">diegocancela.cc</a></p>
+    <script>
+        const quotes = [
+            { quote: "La verdadera sabiduría está en reconocer la propia ignorancia.", author: "Sócrates" },
+            { quote: "El secreto del cambio es enfocar toda tu energía no en luchar contra lo viejo, sino en construir lo nuevo.", author: "Sócrates" },
+            { quote: "La mayor riqueza es vivir contento con poco.", author: "Platón" },
+            { quote: "Podemos perdonar fácilmente a un niño que tiene miedo de la oscuridad; la verdadera tragedia de la vida es cuando los hombres tienen miedo de la luz.", author: "Platón" },
+            { quote: "Somos lo que hacemos repetidamente. La excelencia, entonces, no es un acto, sino un hábito.", author: "Aristóteles" },
+            { quote: "Lo que no te mata, te hace más fuerte.", author: "Friedrich Nietzsche" },
+            { quote: "El que tiene un porqué para vivir puede soportar casi cualquier cómo.", author: "Friedrich Nietzsche" },
+            { quote: "Pienso, luego existo.", author: "René Descartes" },
+            { quote: "Para investigar la verdad es preciso dudar, en cuanto sea posible, de todas las cosas.", author: "René Descartes" },
+            { quote: "La felicidad no es un ideal de la razón, sino de la imaginación.", author: "Immanuel Kant" },
+            { quote: "Obra de tal modo que trates a la humanidad, tanto en tu persona como en la de cualquier otro, siempre como un fin y nunca como un medio.", author: "Immanuel Kant" },
+            { quote: "La única libertad que merece este nombre es la de buscar nuestro propio bien a nuestra manera, siempre que no intentemos privar a los demás del suyo o impedir sus esfuerzos por conseguirlo.", author: "John Stuart Mill" },
+            { quote: "La originalidad es el único poder verdadero en la vida.", author: "John Stuart Mill" },
+            { quote: "No importa lo lento que vayas, siempre y cuando no te detengas.", author: "Confucio" },
+            { quote: "Elige un trabajo que te guste y no tendrás que trabajar ni un día de tu vida.", author: "Confucio" },
+            { quote: "El hombre está condenado a ser libre.", author: "Jean-Paul Sartre" },
+            { quote: "No hacemos lo que queremos y, sin embargo, somos responsables de lo que somos.", author: "Jean-Paul Sartre" },
+            { quote: "Cambia tu vida hoy. No apuestes por el futuro, actúa ahora, sin demora.", author: "Simone de Beauvoir" },
+            { quote: "El conocimiento comienza en el asombro.", author: "Sócrates" },
+            { quote: "La música es para el alma lo que la gimnasia es para el cuerpo.", author: "Platón" },
+            { quote: "No entrenes a un niño para ser rico, entrénalo para ser feliz. Así cuando crezca, sabrá el valor de las cosas y no el precio.", author: "Platón" },
+            { quote: "La esperanza es el sueño del hombre despierto.", author: "Aristóteles" },
+            { quote: "El ignorante afirma, el sabio duda y reflexiona.", author: "Aristóteles" },
+            { quote: "Sin música, la vida sería un error.", author: "Friedrich Nietzsche" },
+            { quote: "Aquel que tiene un porqué para vivir se puede enfrentar a todos los 'cómos'.", author: "Friedrich Nietzsche" },
+            { quote: "Daría todo lo que sé por la mitad de lo que ignoro.", author: "René Descartes" },
+            { quote: "Vivir sin filosofar es, propiamente, tener los ojos cerrados, sin tratar de abrirlos jamás.", author: "René Descartes" },
+            { quote: "La ciencia es conocimiento organizado. La sabiduría es vida organizada.", author: "Immanuel Kant" },
+            { quote: "El sabio puede cambiar de opinión. El necio, nunca.", author: "Immanuel Kant" },
+            { quote: "Es mejor ser un ser humano insatisfecho que un cerdo satisfecho; es mejor ser Sócrates insatisfecho que un tonto satisfecho.", author: "John Stuart Mill" },
+            { quote: "El valor de un acto se juzga por la intención detrás de él.", author: "John Stuart Mill" },
+            { quote: "La voluntad de ganar, el deseo de tener éxito, la urgencia de alcanzar tu máximo potencial, estas son las claves que abrirán la puerta a la excelencia personal.", author: "Confucio" },
+            { quote: "Exígete mucho a ti mismo y espera poco de los demás. Así te ahorrarás disgustos.", author: "Confucio" },
+            { quote: "La libertad es lo que haces con lo que te han hecho.", author: "Jean-Paul Sartre" },
+            { quote: "Vivir es lo más raro del mundo. La mayoría de la gente existe, eso es todo.", author: "Simone de Beauvoir" },
+            { quote: "No se hacen grandes cosas por impulso, sino por una serie de pequeñas cosas reunidas.", author: "Simone de Beauvoir" },
+
+
+        ];
+
+        function getRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            return quotes[randomIndex];
+        }
+
+        window.onload = function() {
+            const randomQuote = getRandomQuote();
+            document.getElementById('quote').innerText = `"${randomQuote.quote}"`;
+            document.getElementById('author').innerText = `- ${randomQuote.author}`;
+        };
+    </script>
+</body>
+</html>
