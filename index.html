@@ -16,9 +16,10 @@
             margin: 0;
             font-family: 'Georgia', serif;
             text-align: center;
+            overflow: hidden; 
         }
         .quote {
-            font-size: 2em;
+            font-size: 2.5em;
             font-style: italic;
             margin-bottom: 1em;
         }
@@ -34,12 +35,46 @@
             bottom: 10px;
             color:#c2c2c2;
             font-style:italic;
+            
         }
+
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+        /* DEMO-SPECIFIC STYLES */
+        .quote {
+            font-family: SRegular;
+            color:#0000;
+            background:
+                linear-gradient(-90deg,#ffffff 5px,#0000 0) 10px 0,
+                linear-gradient(#ffffff 0 0) 0 0;
+            background-size:calc(var(--n)*1ch) 200%;
+            -webkit-background-clip:padding-box,text;
+            background-clip:padding-box,text;
+            background-repeat:no-repeat;
+            animation: 
+                b .7s infinite steps(1),   
+                t calc(var(--n)*.05s) steps(var(--n)) forwards;
+            }
+            @keyframes t{
+            from {background-size:0 200%}
+            }
+            @keyframes b{
+            50% {background-position:0 -100%,0 0}
+        }
+
+        @font-face {
+            font-family: SRegular;
+            src: url(ibm-plex-mono.light.ttf);
+        }
+
+
     </style>
 </head>
 <body>
     <div id="quoteContainer">
-        <p class="quote" id="quote"></p>
+        <span class="quote" id="quote" style="--n:70"></span>
         <p class="author" id="author"></p>
     </div>
     <p class="footer"><a href="https://github.com/diegocancelac">diegocancela.cc</a></p>
@@ -94,7 +129,12 @@
             const randomQuote = getRandomQuote();
             document.getElementById('quote').innerText = `"${randomQuote.quote}"`;
             document.getElementById('author').innerText = `- ${randomQuote.author}`;
+            const quoteElement = document.getElementById('quote');
+            const charCount = randomQuote.quote.length;
+            console.log(charCount);
+            quoteElement.style.setProperty('--n', charCount);
         };
+        
     </script>
 </body>
 </html>
